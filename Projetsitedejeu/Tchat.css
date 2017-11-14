@@ -1,0 +1,29 @@
+#tchat {
+    height: 500px;
+    width: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: 1px black solid;
+    background-color: lightblue;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+fieldset {
+    width: 530px;
+    background-color: royalblue;
+    border: 1px black solid;
+    border-radius: 10px 10px;
+    box-shadow: 10px 10px 5px darkblue;
+}
+
+.rouge {
+    color: red;
+}
+
+/*
+.bbcode .smiley {
+    height: 20px;
+    width: 35px;
+}
+*/

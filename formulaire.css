@@ -1,0 +1,117 @@
+body {     
+    padding-top: 50px; 
+} 
+
+.firstCol {     
+    display: inline-block;     
+    margin-right: 5px;     
+    padding: 3px 0px;     
+    width: 100px;     
+    min-height: 1px;     
+    text-align: right; 
+} 
+ 
+input {    
+    padding: 2px;     
+    border: 1px solid #CCC;     
+    border-radius: 2px;     
+    /* Retire les bordures appliquées par certains navigateurs (Chrome notamment) lors du focus des éléments <input> */     
+    outline: none; 
+    box-sizing: border-box;
+} 
+ 
+input:focus, textarea:focus {     
+    border-color: rgba(82, 168, 236, 0.75);   
+    box-shadow: 0 0 8px rgba(82, 168, 236, 0.5); 
+} 
+ 
+.ok {     
+    border-color: rgba(68, 191, 68, 0.75); 
+} 
+ 
+.ok:focus {     
+    border-color: rgba(68, 191, 68, 0.75);     
+    box-shadow: 0 0 8px rgba(68, 191, 68, 0.5); 
+} 
+ 
+.nok {     
+    border-color: rgba(191, 68, 68, 0.75); 
+} 
+ 
+.nok:focus {    
+    border-color: rgba(191, 68, 68, 0.75);     
+    box-shadow: 0 0 8px rgba(191, 68, 68, 0.5); 
+}
+
+#dob {
+    vertical-align: middle;
+}
+.error  {
+    display: block;
+    padding-left: 15%;
+	border-radius: 4px;
+    color: red;
+    font-size: 0.7em;
+    font-style: italic;
+    text-align: center; 
+}
+
+.classdob {
+/*    padding-left: 30%;*/
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 30px;
+    padding: 3px 0px;
+    text-align: right;
+}
+
+div {
+    display: inline-block;
+}
+
+fieldset {
+    width: 75%;
+    max-width: 800px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-color: lightblue;
+    border-style: solid;
+    margin-top: 20px;
+}
+
+#bouton {
+    width: 75%;
+    max-width: 800px;
+    margin-top: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: none;
+    
+}
+
+#bouton input#submit {
+    width: 100px;
+    margin-left: 35%;
+}
+
+#bouton input#reset {
+    width: 100px;
+}
+
+h1 {
+    text-align: center;
+    width: 75%;
+    max-width: 800px;
+    margin-left: 12%;
+    margin-right: 9%;
+}
+
+#idadr {
+    vertical-align: top;
+}
+
+@media (min-width: 800px) {
+    .sdl {
+    display: none;
+}
+}    

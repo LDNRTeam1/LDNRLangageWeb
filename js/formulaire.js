@@ -44,7 +44,7 @@ function IsAllSaisieValide() {
     let IsDateNaissanceValide = VerificationDateNaissance();
 
     //DP validation de la saisie du sexe
-    //let IsSexeValide = VerificationSexe();
+    let IsSexeValide = VerificationSexe();
 
     //DP validation de la saisie de l adresse
     let IsAdresseValide = VerificationAdresse();

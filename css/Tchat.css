@@ -23,10 +23,12 @@ fieldset {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 h1 {
     text-align: center;
+    font-size: 2.5em;
 }
 
 .rouge {

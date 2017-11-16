@@ -1,5 +1,6 @@
+//**************************************************************************************************************************
 // Partie écrite par Gilles Cros
-//------------------------------
+//
 var elt = document.getElementById('submit');
 var pseudo = "";
 var message = "";
@@ -7,16 +8,17 @@ elt.addEventListener('click', fonctionsub);
 var xhr = new XMLHttpRequest();
 var xhr1 = new XMLHttpRequest();
 
-function fonctionsub() {
+// fonction appelée lorsque l'utilisateur clique sur le bouton <envoyer>
+//----------------------------------------------------------------------
+function fonctionsub(e) {
     var pseudo = document.getElementById('pseudo').value;
     var message = document.getElementById('message').value;
 
-    // les remplacements suivants seront fait par vladimir un peu plus bas
-    //    message=message.replace('[/','</');
-    //    message=message.replace('[','<');
-    //    message=message.replace(']','>');
 
-    if ((pseudo != "") && (message != "")) {
+    if ((pseudo != "") && (message != ""))
+    // Si le pseudo ou le message ne sont pas renseignés, aucune action
+    // sinon mise en forme de la requête XHR et envoi au serveur (traitée par putTchatContent.php)
+    {
         var urlPost = 'putTchatContent.php';
         xhr1.open('POST', urlPost);
         let formData = new FormData();
@@ -24,10 +26,21 @@ function fonctionsub() {
         formData.append('pseudo', pseudo);
         formData.append('message', message);
         xhr1.send(formData);
+        if ((xhr.status >= 200) && (xhr.status < 400)) {
+            concole.log(xhr.responseTest);
+        } else {
+            concole.error(xhr.status + "" + xhr.statusText);
+        }
+        e.preventDefault(); //VT arrêt propagation de l'évènement
+        document.getElementById('message').value = ""; //VT reinitialisation de la case message après envoi
     }
-
+    // fin fonction fonctionsub
 }
 
+
+// Mise en forme des messages BBcode et smiley
+//--------------------------------------------
+//Mise enplace d'écouteurs sur chaque boutons de la mise en forme
 var eltg = document.getElementById('gras');
 eltg.addEventListener('click', miseEnForme);
 
@@ -52,12 +65,19 @@ eltep.addEventListener('click', miseEnForme);
 var eltem = document.getElementById('tirelangue');
 eltem.addEventListener('click', miseEnForme);
 
+// Fonction appellée à chaque fois qu'un écouteur de mise en forme réagit
+//-----------------------------------------------------------------------
 function miseEnForme(v) {
+    // on récupère le message, les positions de début et de fin du texte sélectionné 
+    // et sur lequel va s'appliquer la mise en forme, le texte sélectionné est mis dans la variable selectedText
     var el = document.form.message;
     var start = el.selectionStart;
     var end = el.selectionEnd;
     v = this.value;
     var selectedText = el.value.substring(start, end);
+    // Mise en forme avec la mise en forme choisie (tag), le resultat est placé dans la variable selectedWithTag
+    // le traitement est le même pour les BBcode et les smiley, 
+    // dans ce dernier cas le smiley sera positionné à la place du curseur dans le message   
     var selectedWithTag = "[" + v + "]" + selectedText + "[/" + v + "]";
     if (v == "r") {
         selectedWithTag = "[color=red]" + selectedText + "[/color]";
@@ -66,15 +86,21 @@ function miseEnForme(v) {
     } else if (v == "es") {
         var selectedWithTag = ":-O" + selectedText;
     } else if (v == "et") {
-        var selectedWithTag = ":-p" + selectedText;
+        var selectedWithTag = ":-[" + selectedText;
     } else if (v == "ep") {
         var selectedWithTag = ":-(" + selectedText;
     }
+    // réécriture du résultat mis en forme dans le champs de formulaire    
     el.focus();
     el.value = el.value.substring(0, start) + selectedWithTag + el.value.substring(end);
     return;
 }
+
+
 // Fin de la Partie écrite par Gilles Cros
+//***************************************************************************************************************************
+
+
 
 
 
@@ -83,12 +109,20 @@ function miseEnForme(v) {
 //Partie GET_Vladimir
 //---------------------------------------
 
+// actualise historique avec un délai en cliquant sur le bouton envoyer
+elt.addEventListener('click', acualisationMessageDelai);
 //chargement historique des messages à l'ouverture
 window.addEventListener("load", acualisationMessage);
 //actualisation du tchat à intervalles réguliers
 const intervalMessage = setInterval(acualisationMessage, 30000);
 
-function acualisationMessage() { //fonction requete GET
+//actualise historique avec un délai en cliquant sur le bouton envoyer
+function acualisationMessageDelai() {
+    setTimeout(acualisationMessage, 500);
+}
+
+//fonction principale d'affichage des messages
+function acualisationMessage() {
     const urlGet = 'getTchatContent.php';
     //Requete GET
     xhr.open('GET', urlGet);
@@ -102,19 +136,23 @@ function acualisationMessage() { //fonction requete GET
 
 //fonction d'affichage du message
 function afficheResultats(resultat) {
-    let blocTexte = document.getElementById('tchat'), //élément contenant les messages
-        textReponse = resultat.split('<br>'), //séparation des messages à partir du contenu de tchatContent.html
-        longueurHistorique = 0;
+    //élément contenant les messages
+    let blocTexte = document.getElementById('tchat'),
+        //séparation des messages à partir du contenu de tchatContent.html
+        textReponse = resultat.split('<br>'),
+        longueurHistorique = 0; //variable qui gère le nombres de messages
     blocTexte.innerHTML = ""; //initialisation élément tchat
     //limite la longueur de l'historique aux 50 derniers messages
     if (textReponse.length > 50) longueurHistorique = 50;
     else longueurHistorique = textReponse.length;
+
     //boucle affichage historique messages dans l'ordre inverse:
     for (let i = 0; i < longueurHistorique; i++) {
         //insertion messages dans l'élément tchat
         let liste = document.createElement('div');
         liste.appendChild(document.createTextNode(textReponse[i]));
-        bbcode(liste); //conversion bbcode, smiley en éléments html
+        //conversion bbcode, smiley en éléments html
+        bbcode(liste);
         blocTexte.appendChild(liste); //element d'id='tchat' du doc html qui contient les div
     }
 }

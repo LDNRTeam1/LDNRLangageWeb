@@ -58,19 +58,19 @@ newInputb.className="new";
 newInputb.placeholder="Bouton";
 newInputb.id="newInput";
 
-const newButton1=document.createElement('button'); 
+const newButton1=document.createElement('button'); // Le bouton ok 
 newButton1.id="newButton1";
 newButton1.className="new";
 newButton1.innerHTML="Ok";
 
-const newButton2=document.createElement('button');
+const newButton2=document.createElement('button'); // le bouton cancel
 newButton2.id="newButton2";
 newButton2.className="new";
 newButton2.innerHTML="Cancel";
 
-const helpDiv=document.createElement('div');
+const helpDiv=document.createElement('div'); // la partie descriptif du fonctionnement du générateur
 helpDiv.id="help";
-helpDiv.innerHTML="Utilisez la zone de texte ci-dessus pour définir le texte à insérer dans le label, puis cliquez sur <strong>OK</strong> pour afficher le label dans la partie gauche de la page ou sur <strong>Annuler</strong>                      pour annuler l'insertion du label.";
+helpDiv.innerHTML="Utilisez la zone de texte ci-dessus pour définir le texte à insérer dans le label, puis cliquez sur <strong>OK</strong> pour afficher le label dans la partie gauche de la page ou sur <strong>Annuler</strong> pour annuler l'insertion du label.";
 
 const prelabel=document.createElement('div');
 prelabel.id="code";
@@ -137,7 +137,7 @@ function reset(evt) {
     for (let i=0; i<listButton.length-2; i++) {
         listButton[i].disabled=false;
     };
-    
+    // lorsque l'on annule la saisie on veut que la partie qui est apparue disparait et que le texte dans le Input soit effacé
     if (newDivl.parentNode==saisie) {
         saisie.removeChild(newDivl);
         newInputl.value="";
@@ -159,6 +159,7 @@ function reset(evt) {
 
 newButton1.addEventListener('click', suite);
 function suite(evt) {
+    // on crée les éléments html pour faire apparaitre dans la partie formulaire
     if (newButton1.parentNode==newDivl) {
         const label=newInputl.value;
         const formLabel=document.createElement('span');
@@ -193,8 +194,10 @@ function suite(evt) {
         
     }
     
+    //on reset la fenetre de saisie quand on clique sur ok 
     reset();  
 
+    //Ici on récuère le innerHTML et on remplace les < et > par leur nom
     prelabel.innerHTML='';
     var texte=geneform.innerHTML || geneform.textContent;
     var texte1=texte.replace(/</gi, "&lt;");

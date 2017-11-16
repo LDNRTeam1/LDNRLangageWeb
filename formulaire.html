@@ -7,7 +7,6 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
-    <!-- <link href="css/formulaire.css" rel="stylesheet">-->
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
@@ -17,8 +16,8 @@
     <header>
         <nav>
             <div class="nav-wrapper light-blue">
-                <a href="#" class="brand-logo right">SiteDeJeux.com</a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <!--<a href="#" class="brand-logo right">SiteDeJeux.com</a> -->
+                <ul class="left">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="formulaire.html">Inscription</a></li>
                     <li><a href="tchat.html">Tchat</a></li>
@@ -31,98 +30,96 @@
 
     <main>
         <!-- <h1 id="title">Formulaire d'inscription</h1>-->
-        <div>
-            <h4 class="center-align">Formulaire d'inscription</h4>
-        </div>
+
 
         <div class="container">
-            <div class="row">
-                <form class="col s12" id="inscriptionForm">
+            <div class="row center-align"></div>
+            <h4>Formulaire d'inscription</h4>
+        </div>
 
-                    <fieldset id="fldst1">
-                        <!-- JA/ Ici les identifiants utilisé pour se connecter à l'espace personelle après l'incription -->
-                        <legend>Identifiants</legend>
+        <div class="row">
+            <div class="col m6 s12">
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="pseudo" id="pseudo" type="text" class="validate">
-                                <label for="pseudo">Pseudo</label>
-                            </div>
-                        </div>
+                <form id="inscriptionForm">
 
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input placeholder="password" id="pwd" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input placeholder="confirmation" id="confirmation" type="password" class="validate">
-                                <label for="confirmation">Confirmation</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <br><br>
+                    <div class="input-field col s12">
+                        <input placeholder="pseudo" id="pseudo" type="text" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre pseudo">
+                        <label for="pseudo">Votre pseudo</label>
+                    </div>
 
-                    <fieldset id="fldst2">
-                        <!-- Les informations personnelles pouvant servir à l'envoie de cadeau-->
-                        <legend>Informations personnelles</legend>
+                    <div class="input-field col s6">
+                        <input placeholder="password" id="pwd" type="password" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre password">
+                        <label for="password">Votre password</label>
+                    </div>
 
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input placeholder="nom" id="nom" type="text" class="validate">
-                                <label for="nom">Nom</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input placeholder="prenom" id="prenom" type="text" class="validate">
-                                <label for="prenom">Prenom</label>
-                            </div>
-                        </div>
+                    <div class="input-field col s6">
+                        <input placeholder="confirmation" id="confirmation" type="password" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre confirmation">
+                        <label for="confirmation">Votre confirmation</label>
+                    </div>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="dob" id="dob" type="date" class="validate">
-                                <!--<label for="dob">Date de Naissance</label>-->
-                            </div>
-                        </div>
+                    <div class="input-field col s6">
+                        <input placeholder="nom" id="nom" type="text" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre nom" data-length="50">
+                        <label for="nom">Votre nom</label>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="adress" id="adress" type="text" class="validate">
-                                <label for="adress">Adresse</label>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="prenom" id="prenom" type="text" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre prenom" data-length="50">
+                        <label for="prenom">Votre prenom</label>
+                    </div>
 
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input placeholder="codep" id="codep" type="text" class="validate">
-                                <label for="codep">Code Postal</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input placeholder="ville" id="ville" type="text" class="validate">
-                                <label for="ville">Ville</label>
-                            </div>
-                        </div>
-                    </fieldset>
 
-                    <!-- JA/ On regroupe les bouton de fin de formulaire dans un fieldset afin de conserver l'ensemble des effets CSS-->
-                    <!-- <input type="submit" name='submit' id='submit' value="Soumettre" />-->
-                    <!-- <input type="reset" name='reset' id='reset' value="Vider" /> -->
-                    <fieldset id="bouton">
+                    <div class="input-field col s12">
+                        <input placeholder="dob" id="dob" type="date" class="validate">
+                        <!--<label for="dob">Date de Naissance</label>-->
+                    </div>
+
+
+                    <div class="input-field col s12">
+                        <input placeholder="adress" id="adress" type="text" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre adresse" data-length="100">
+                        <label for="adress">Adresse</label>
+                    </div>
+
+
+                    <div class="input-field col s6">
+                        <input placeholder="codep" id="codep" type="text" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre code postal" data-length="5">
+                        <label for="codep">Code Postal</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="ville" id="ville" type="text" class="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Veuillez saisir votre ville" data-length="50">
+                        <label for="ville">Ville</label>
+                    </div>
+
+                    <div>
+                        <input class="with-gap" type="radio" name="sexe" id="masculin">
+                        <label for="masculin">Masculin</label>
+                        <input class="with-gap" type="radio" name="sexe" id="feminin">
+                        <label for="feminin">Feminin</label>     
+                    </div>
+                    
+                    <div class="input-field col s12">
+                        <!-- JA/ On regroupe les bouton de fin de formulaire dans un fieldset afin de conserver l'ensemble des effets CSS-->
+                        <!-- <input type="submit" name='submit' id='submit' value="Soumettre" />-->
+                        <!-- <input type="reset" name='reset' id='reset' value="Vider" /> -->
                         <!-- JA/ On regroupe les bouton de fin de formulaire dans un fieldset afin de conserver l'ensemble des effets CSS-->
                         <input type="submit" name='submit' id='submit' value="Soumettre" />
                         <input type="reset" name='reset' id='reset' value="Vider" />
-                    </fieldset>
-                    <br><br>
+                    </div>
 
                 </form>
             </div>
+
         </div>
     </main>
 
     <footer class="page-footer light-blue">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2017 Copyright LDNRTeam1
+        <div class="container">
+            <div class="row">
+                <div class="col m6 s12">
+                    <h5>© 2017 Copyright LDNRTeam1</h5>
+                </div>
+                <div class="col m6 s12">
+                    <h5>SiteDeJeux.com</h5>
+                </div>
             </div>
         </div>
     </footer>

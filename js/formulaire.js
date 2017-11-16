@@ -1,13 +1,13 @@
 // DP Assignation de l evenement click sur le bouton soumettre
 const formulaire = document.getElementById("inscriptionForm");
 formulaire.addEventListener("submit", function (evenement) {
-    let validation;
+    let validation = false;
 
     //DP validation saisie correcte de toutes les saisies 
     validation = IsAllSaisieValide();
 
     //DP Si toutes les saisies sont correctes alors envoi du formulaire simule
-    if (validation) {
+    if (validation === true) {
         alert("envoie du formulaire valide");
 
     } else {

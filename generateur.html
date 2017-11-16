@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<!-- code réassemblé par DP -->
+<!doctype html>
 <html>
 
 <head>
@@ -7,11 +6,12 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
-    <link href="css/index.css" rel="stylesheet">
+    <link href="css/generateur.css" rel="stylesheet">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
 </head>
+
 
 <body>
     <header>
@@ -28,14 +28,24 @@
             </div>
         </nav>
     </header>
+    <h1>Générateur de formulaire</h1>
 
-    <div class="container">
-        <main>
-            <h4>Bienvenue sur le site Site SiteDeJeux.com!</h4>
-            <p class="flow-text">Ex turba vero imae sortis et paupertinae in tabernis aliqui pernoctant vinariis, non nulli velariis umbraculorum theatralium latent, quae Campanam imitatus lasciviam Catulus in aedilitate sua suspendit omnium primus; aut pugnaciter aleis certant turpi sono fragosis naribus introrsum reducto spiritu concrepantes; aut quod est studiorum omnium maximum ab ortu lucis ad vesperam sole fatiscunt vel pluviis, per minutias aurigarum equorumque praecipua vel delicta scrutantes.</p>
-        </main>
+    <form id="geneform">
+    </form>
+
+    <div id="saisie">
+        <h5>Utiliser ces boutons pour générer les éléments de votre formulaire</h5>
+        <button id="bLabel">Label</button>
+        <button id="bText">Zone de texte</button>
+        <button id="bButton">Bouton</button>
+        <br>
+        <hr>
     </div>
 
+    <div id="affichecode">
+        <h3>Code du formulaire crée</h3>
+    </div>
+    
     <footer class="page-footer light-blue">
         <div class="container">
             <div class="row">
@@ -52,6 +62,8 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
+    <script src="js/generateur.js"></script>
+
 </body>
 
 </html>

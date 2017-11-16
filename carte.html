@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- code réassemblé par Gilles CROS -->
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+    <link href="css/carte.css" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+</head>
+
+<body>
+        <header>
+        <nav>
+            <div class="nav-wrapper light-blue">
+                <!--<a href="#" class="brand-logo right">SiteDeJeux.com</a> -->
+                <ul class="left">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="formulaire.html">Inscription</a></li>
+                    <li><a href="tchat.html">Tchat</a></li>
+                    <li><a href="carte.html">Localisation</a></li>
+                    <li><a href="generateur.html">Generateur</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div align="center">
+        <h1>Les joueurs de SiteDeJeux.com dans la région toulousaine</h1>
+    </div>
+    <div id="map"></div>
+    <script>
+        var map;
+
+        function initMap() {
+            var asiatides = {
+                lat: 43.54864,
+                lng: 1.512372
+            };
+            var ldnr = {
+                lat: 43.550853,
+                lng: 1.501289
+            };
+            var caffarel = {
+                lat: 43.907085,
+                lng: 2.009962
+            };
+            var julien = {
+                lat: 43.539833,
+                lng: 1.516073
+            };
+            var gilles = {
+                lat: 43.652401,
+                lng: 1.200992
+            };
+            var vlad = {
+                lat: 43.584851,
+                lng: 1.448014
+            };
+            var daniel = {
+                lat: 44.006433,
+                lng: 1.369274
+            };
+
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: ldnr,
+                zoom: 9
+            });
+
+            var marker = new google.maps.Marker({
+                position: ldnr,
+                map: map,
+                title: "Emile Marco"
+            });
+
+            var contentMarker = "<b>Emile MARCO</b>" + "<br>" + "joue pendant ses pauses dans les locaux de LDNR" + "<IMG BORDER='0' align='center' SRC='photos/emile.jpg'>" + "<br><br><IMG BORDER='0' SRC='photos/ldnr.jpg'><b>LDNR</b>";
+            var infoWindow = new google.maps.InfoWindow({
+                content: contentMarker,
+                maxWidth: 170,
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infoWindow.open(map, marker);
+            });
+
+            var marker2 = new google.maps.Marker({
+                position: asiatides,
+                map: map,
+                title: "Nina BÜCHNER"
+            });
+            var contentMarker2 = "<b>Nina BÜCHNER</b>" + "<br>" + "joue pendant sa pause déjeuner dans son restaurant préféré" + "<br>" + "<IMG BORDER='0' SRC='photos/nina.jpg'>" + "<br><IMG BORDER='0' SRC='photos/asiatide.jpg'><b>Asiatides</b>";
+            var infoWindow2 = new google.maps.InfoWindow({
+                content: contentMarker2,
+                maxWidth: 170,
+            });
+
+            google.maps.event.addListener(marker2, 'click', function() {
+                infoWindow2.open(map, marker2);
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: caffarel,
+                map: map,
+                title: "Herbert CAFFAREL"
+            });
+            var contentMarker3 = "<b>Herbert CAFFAREL</b>" + "<br>" + "joue chez lui quand les corrections lui en laissent le temps" + "<br>" + "<br><IMG BORDER='0' SRC='photos/herbert.jpg'>";
+            var infoWindow3 = new google.maps.InfoWindow({
+                content: contentMarker3,
+                maxWidth: 170,
+            });
+
+            google.maps.event.addListener(marker3, 'click', function() {
+                infoWindow3.open(map, marker3);
+            });
+
+            var marker4 = new google.maps.Marker({
+                position: julien,
+                map: map,
+                title: "Julien ABOUTARD"
+            });
+            var contentMarker4 = "<b>Julien ABOUTARD</b>" + "<br>" + "joue chez lui quand les cours lui en laissent le temps" + "<br>" + "<br><IMG BORDER='0' SRC='photos/julien.jpg'>";
+            var infoWindow4 = new google.maps.InfoWindow({
+                content: contentMarker4,
+                maxWidth: 270,
+            });
+
+            google.maps.event.addListener(marker4, 'click', function() {
+                infoWindow4.open(map, marker4);
+            });
+
+            var marker5 = new google.maps.Marker({
+                position: gilles,
+                map: map,
+                title: "Gilles CROS"
+            });
+            var contentMarker5 = "<b>Gilles CROS</b>" + "<br>" + "joue chez lui quand les cours lui en laissent le temps" + "<br>" + "<br><IMG BORDER='0' SRC='photos/gilles.jpg'>";
+            var infoWindow5 = new google.maps.InfoWindow({
+                content: contentMarker5,
+                maxWidth: 270,
+            });
+
+            google.maps.event.addListener(marker5, 'click', function() {
+                infoWindow5.open(map, marker5);
+            });
+
+            var marker6 = new google.maps.Marker({
+                position: vlad,
+                map: map,
+                title: "Vladimir TKACZUCK"
+            });
+            var contentMarker6 = "<b>Vladimir TKACZUCK</b>" + "<br>" + "joue chez lui quand les cours lui en laissent le temps" + "<br>" + "<br><IMG BORDER='0' SRC='photos/vlad.jpg'>";
+            var infoWindow6 = new google.maps.InfoWindow({
+                content: contentMarker6,
+                maxWidth: 270,
+            });
+
+            google.maps.event.addListener(marker6, 'click', function() {
+                infoWindow6.open(map, marker6);
+            });
+
+            var marker7 = new google.maps.Marker({
+                position: daniel,
+                map: map,
+                title: "Daniel PRIGENT"
+            });
+            var contentMarker7 = "<b>Daniel PRIGENT</b>" + "<br>" + "joue chez lui quand les cours lui en laissent le temps" + "<br>" + "<br><IMG BORDER='0' SRC='photos/daniel.jpg'>";
+            var infoWindow7 = new google.maps.InfoWindow({
+                content: contentMarker7,
+                maxWidth: 270,
+            });
+
+            google.maps.event.addListener(marker7, 'click', function() {
+                infoWindow7.open(map, marker7);
+            });
+
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1hJyJBqcfvesn5aWrMXUN_WQP0FBnBUw&callback=initMap" async defer></script>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+    <footer class="page-footer light-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col m6 s12">
+                    <h5>© 2017 Copyright LDNRTeam1</h5>
+                </div>
+                <div class="col m6 s12">
+                    <h5>SiteDeJeux.com</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

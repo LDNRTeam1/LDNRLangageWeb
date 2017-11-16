@@ -81,9 +81,14 @@ function miseEnForme(v) {
 
 
 //Partie GET_Vladimir
+//---------------------------------------
 
-const intervalMessage = setInterval(acualisationMessage, 30000); //actualisation du tchat
-function acualisationMessage() { //fonction GET
+//chargement historique des messages à l'ouverture
+window.addEventListener("load", acualisationMessage);
+//actualisation du tchat à intervalles réguliers
+const intervalMessage = setInterval(acualisationMessage, 30000);
+
+function acualisationMessage() { //fonction requete GET
     const urlGet = 'getTchatContent.php';
     //Requete GET
     xhr.open('GET', urlGet);
@@ -95,29 +100,33 @@ function acualisationMessage() { //fonction GET
     xhr.send(null);
 }
 
-//Fonction remplacement pseudo en gras, BBCode et smiley
-function bbcode(messageBbcode) {
-    //Bbcode, pseudo
-    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\[([bis])\](.+?)\[\/\1\]/g, '<$1>$2</$1>');
-    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\[color=red\](.+?)\[\/color\]/g, "<span class='rouge '>$1</span>");
-    //Smiley
-    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\)/g, "<img src='emoticones/sourire.png' class='emoticones' alt='sourire'>");
-    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\(/g, "<img src='emoticones/pleure.png' class='emoticones' alt='triste'>");
-    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\p/g, "<img src='emoticones/tirelangue.png' class='emoticones' alt='tirelangue'>");
-    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\O/g, "<img src='emoticones/surpris.png' class='emoticones' alt='surprise'>");
-}
-
 //fonction d'affichage du message
 function afficheResultats(resultat) {
     let blocTexte = document.getElementById('tchat'), //élément contenant les messages
-        textReponse = resultat.split('<br>'); //création de la collection à partir du contenu de tchatContent.html
-    blocTexte.innerHTML = "";
+        textReponse = resultat.split('<br>'), //séparation des messages à partir du contenu de tchatContent.html
+        longueurHistorique = 0;
+    blocTexte.innerHTML = ""; //initialisation élément tchat
+    //limite la longueur de l'historique aux 50 derniers messages
+    if (textReponse.length > 50) longueurHistorique = 50;
+    else longueurHistorique = textReponse.length;
     //boucle affichage historique messages dans l'ordre inverse:
-    for (let i = 0; i < textReponse.length; i++) {
+    for (let i = 0; i < longueurHistorique; i++) {
         //insertion messages dans l'élément tchat
         let liste = document.createElement('div');
         liste.appendChild(document.createTextNode(textReponse[i]));
         bbcode(liste); //conversion bbcode, smiley en éléments html
         blocTexte.appendChild(liste); //element d'id='tchat' du doc html qui contient les div
     }
+}
+
+//Fonction remplacement pseudo en gras, BBCode et smiley
+function bbcode(messageBbcode) {
+    //Bbcode, pseudo
+    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\[([bis])\](.+?)\[\/\1\]/g, '<$1>$2</$1>');
+    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\[color=red\](.+?)\[\/color\]/g, "<span class='rouge '>$1</span>");
+    //Smiley
+    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\)/g, "<img src='images/sourire.png' class='emoticones' alt='sourire'>");
+    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\(/g, "<img src='images/pleure.png' class='emoticones' alt='triste'>");
+    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\p/g, "<img src='images/tirelangue.png' class='emoticones' alt='tirelangue'>");
+    messageBbcode.innerHTML = messageBbcode.innerHTML.replace(/\:\-\O/g, "<img src='images/surpris.png' class='emoticones' alt='surprise'>");
 }

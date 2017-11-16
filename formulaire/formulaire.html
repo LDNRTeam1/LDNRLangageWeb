@@ -1,0 +1,116 @@
+<!doctype html> 
+<html> 
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulaire</title> 
+        <link href="formulaire.css" rel="stylesheet"> 
+    </head> 
+    
+    <body>
+        
+        <h1 id="title">Formulaire d'inscription</h1>
+        <form id="inscriptionForm"> 
+            
+            <fieldset id="fldst1"> <!-- JA/ Ici les identifiants utilisé pour se connecter à l'espace personelle après l'incription -->
+                <legend>Identifiants</legend> 
+                
+                <div> <!-- JA/ Ici les div permettent de contenir l'ensemble des éléments et empécher la dispersion du span d'erreur-->
+                    <label for="pseudo" class="firstCol">Pseudo</label> 
+                    <input type="text" name="pseudo" id="pseudo" size="20" min="4" max="50" placeholder="Votre pseudo"> <br>
+                    <span id="spanPseudo" class="error">votre pseudo doit faire au moins 6 caractères.</span>
+                </div>  
+                
+                <br><br> 
+                
+                <div>
+                    <label for="pwd" class="firstCol">Mot de passe</label> 
+                    <input type="password" name="pwd" id="pwd" size="20" min="6" placeholder="Votre mot de passe"> 
+                    <span id="spanPwd" class="error">votre mot de passe doit faire au moins 8 caractères.</span>
+                </div>
+                
+                <br><br>
+                
+                <div>
+                    <label for="confirmation" class="firstCol">Confirmation</label> 
+                    <input type="password" name="confirmation" id="confirmation" size="20" min="6" placeholder="Confirmation mot de passe"> 
+                    <span id="spanConfirmation" class="error">vous n'avez pas confirmé votre mot de passe.</span>
+                </div>
+                
+                <br><br> 
+                
+            </fieldset>
+            
+            <fieldset id="fldst2"> <!-- Les informations personnelles pouvant servir à l'envoie de cadeau-->
+                <legend>Informations personnelles</legend>
+                
+                <div>
+                    <span class="firstCol">Sexe :</span> 
+                    <label> <input type="radio" name="sexe" value="masculin">Masculin </label> 
+                    <label> <input type="radio" name="sexe" value="feminin">Féminin </label>
+                    <span id="spanSexe" class="error">veuillez choisir un sexe.</span>
+                </div>
+                
+                <br><br> 
+                
+                <div>
+                    <label for="nom" class="firstCol">Nom</label> 
+                    <input type="text" name="nom" id="nom" size="20" min="2" max="50" placeholder="Votre nom"> 
+                    <span id="spanNom" class="error">votre nom doit faire au moins 2 caractères.</span>
+                </div>
+                
+                <br class="sdl"><br class="sdl">
+                
+                <div>
+                    <label for="prenom" class="firstCol">Prénom</label> 
+                    <input type="text" name="prenom" id="prenom" size="20" min="2" max="50" placeholder="Votre prenom"> 
+                    <span id="spanPrenom" class="error">votre prénom doit faire au moins 2 caractères.</span>
+                </div>
+                
+                <br><br> 
+                
+                <div id="divdob">
+                    <label class="classdob">Date de naissance</label>
+                    <input type="date" name="date_of_birth" id="dob" size="20" min="1900-01-01" max="2050-12-31">
+                    <span id="spanDate" class="error">vous nn'avez pas indiqué votre date de naissance</span>
+                </div>
+                
+                <br><br> 
+                
+                <div>
+                    <label id="idadr" class="firstCol">Adresse </label>
+                    <textarea name="adress" id="adress" size="20" max="100" cols="30" rows="3" placeholder="Votre adresse"></textarea>
+                    <span id="spanAdress" class="error">Vous avez mal renseigné votre adresse</span>
+                </div>
+                
+                <br><br>
+                
+                <div>
+                    <label class="firstCol">Code postal</label>
+                    <input type="text" name="code_postal" id="codep" size="20" placeholder="XXXXX">
+                    <span id="spanCodep" class="error">Veuillez renseigner votre code postal</span>
+                </div>
+                
+                <br class="sdl"><br class="sdl">
+                
+                <div>
+                    <label class="firstCol">Ville</label>
+                    <input type="text" name="ville" id="ville" size="20" max="50" placeholder="Toulouse">
+                    <span id="spanVille" class="error">Veuiller renseigner votre ville</span>
+                </div> 
+                
+                <br><br>
+            
+            </fieldset>     
+              
+            <fieldset id="bouton"> <!-- JA/ On regroupe les bouton de fin de formulaire dans un fieldset afin de conserver l'ensemble des effets CSS-->
+                <input type="submit" name='submit' id='submit' value="Soumettre" /> 
+                <input type="reset" name='reset' id='reset' value="Vider" /> 
+            </fieldset>    
+
+            
+        </form> 
+        
+        <script src="formulaire.js"></script> 
+    </body>
+</html>

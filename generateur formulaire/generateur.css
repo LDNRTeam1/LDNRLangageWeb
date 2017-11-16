@@ -1,0 +1,49 @@
+#geneform {
+/*    background-color: blue;*/
+    height: 600px;
+    width: 70%;
+    float: left;
+    border-right: 3px solid black;
+}
+
+#saisie {
+    padding-left: 71%;
+    border: 2px solid lightblue;
+/*    background-color: red;*/
+    height: 600px;
+}
+
+#affichecode {
+/*    background-color: green;*/
+    height: 200px;
+    border: 2px solid lightblue;
+    margin-top: 10px;
+}
+
+.first {
+    display: inline-block;
+    padding-left: 5px;
+    padding-top: 10px;
+    width: 150px;
+    margin: 5px;
+}
+
+.second {
+    display: inline-block;
+    margin: 5px;
+}
+
+#code {
+    background-color: lightsteelblue;
+}
+
+h3 {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+h5{
+    padding-top: 10px;
+}
+.new {
+    margin: 5px;

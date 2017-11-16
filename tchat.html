@@ -2,41 +2,64 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Tchat</title>
-    <link rel="stylesheet" href="Tchat.css">
-
-    <script>
-
-
-    </script>
-
-
-
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+    <link href="css/tchat.css" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-    <h1>Tchat Site de jeu</h1>
-    <fieldset>
-        <form id="form" name="form" action="#" method="post">
-            <input id="pseudo" value="" size="6" placeholder="Pseudo" type="text">
-            <input id="message" value="" size="27" placeholder="Votre message" type="text">
-            <button type="submit" id="submit">envoyer</button><br>
-            <button type="button" class='bbcode' id="gras" value="b"><img src="emoticones/gras.png"></button>
-            <button type="button" class='bbcode' id="italic" value="i"><img src="emoticones/italic.png"></button>
-            <button type="button" class='bbcode' id="barre" value="s"><img src="emoticones/barre.png"></button>
-            <button type="button" class='bbcode' id="red" value="r"><img src="emoticones/red.png"></button>
+    <header>
+        <nav>
+            <div class="nav-wrapper light-blue">
+                <a href="#" class="brand-logo right">Site de jeux en ligne</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="formulaire.html">Inscription</a></li>
+                    <li><a href="tchat.html">Tchat</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-            <button type="button" class='smiley' id="sourire" value="ee"><img src="emoticones/sourire.png"></button>
-            <button type="button" class='smiley' id="surpris" value="es"><img src="emoticones/surpris.png"></button>
-            <button type="button" class='smiley' id="pleure" value="ep"><img src="emoticones/pleure.png"></button>
-            <button type="button" class='smiley' id="tirelangue" value="et"><img src="emoticones/tirelangue.png"></button>
+    <main>
+        <h1>Tchat Site de jeu</h1>
+        <fieldset>
+            <form id="form" name="form" action="#" method="post">
+                <input id="pseudo" value="" size="6" placeholder="Pseudo" type="text">
+                <input id="message" value="" size="27" placeholder="Votre message" type="text">
+                <button type="submit" id="submit">envoyer</button><br>
+                <button type="button" class='bbcode' id="gras" value="b"><img src="emoticones/gras.png"></button>
+                <button type="button" class='bbcode' id="italic" value="i"><img src="emoticones/italic.png"></button>
+                <button type="button" class='bbcode' id="barre" value="s"><img src="emoticones/barre.png"></button>
+                <button type="button" class='bbcode' id="red" value="r"><img src="emoticones/red.png"></button>
 
-        </form>
-        <br>
-        <div id="tchat"></div>
-    </fieldset>
-    <script src="Tchat.js"></script>
+                <button type="button" class='smiley' id="sourire" value="ee"><img src="emoticones/sourire.png"></button>
+                <button type="button" class='smiley' id="surpris" value="es"><img src="emoticones/surpris.png"></button>
+                <button type="button" class='smiley' id="pleure" value="ep"><img src="emoticones/pleure.png"></button>
+                <button type="button" class='smiley' id="tirelangue" value="et"><img src="emoticones/tirelangue.png"></button>
+
+            </form>
+            <br>
+            <div id="tchat"></div>
+        </fieldset>
+    </main>
+
+    <footer class="page-footer light-blue">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 Copyright LDNRTeam1
+            </div>
+        </div>
+    </footer>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script src="js/Tchat.js"></script>
 </body>
 
 </html>
